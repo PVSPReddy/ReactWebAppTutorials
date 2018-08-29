@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react-dom.js"></script> -->
+        <!-- We delete the above lines as we are using packages that includes the lines automatically -->
+    </head>
+    <body>
+        <div id="app"></div>
+        <script src="bundle.js"></script>
+        <div>
+            <h3>Lesson 1</h3>
+            <p>npm install --save-dev webpack@1.12.13 babel-core@6.5.1 babel-loader@6.2.2 babel-preset-es2015@6.5.0 babel-preset-react@6.5.0</p>
+            <p>--- Creates a <strong>devDependencies</strong> in <strong>package.json</strong> file this is user for development only in production these packages wont be installed in hosting server</p>
+            <br/>
+            <br/>
+            <p>npm install --save react@0.14.7 react-dom@0.14.7</p>
+            <p>--- Creates a <strong>dependencies</strong> in <strong>package.json</strong> file this is user for both development and in production these packages will be installed in hosting server</p>
+            <p>because of the above <strong>dependencies</strong> we can eliminate adding of the following lines in html files</p>
+            <ol>
+                <li>script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"/</li>
+                <li>script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react.js"/</li>
+                <li>script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react-dom.js"/</li>
+            </ol>
+            <br/>
+            <br/>
+            <h3>Lesson 2</h3>
+            <p>We dont have to use babel type here we can directly use javascript, instead of jsx we can use javascript to use these we have to following a few steps</p>
+            <ol>
+                <li>For this we need a third party package like webpack install this globally in your system by using <strong>-g tag</strong></li>
+                <li><strong>npm install -g webpack@1.12.13</strong></li>
+                <li>then install locally and for development purpose as <strong>npm install --save-dev webpack@1.12.13</strong></li>
+                <li>Create a file with any name assume app.js</li>
+                <li>write a function with documnet.write('Text to display in the function'); </li>
+                <li>This will be displayed in the window/screen</li>
+                <li>now in the index.html file write the line<li>script src="bundle.js"</li></li>
+                <li>This bundle.js will be created automatically to make this happen use the following command in command line</li>
+                <li><strong>webpack ./public/app.js ./public/bundle.js</strong>    </br>                   <strong>webpack SourceFileLocation TargetFileLocation</strong></li>
+            </ol>
+            <br/>
+            <br/>
+            <h3>Lesson 3</h3>
+            <p>Now we are dividing or placing each component into different files and by using <strong>require('package name');</strong> we will be using the required component in our application</p>
+            <ol>
+                <li>Create a folder called Components in public directory</li>
+                <li>add Greeter.js file and add function and <strong>use module.exports = [function name]</strong></li>
+                <li>Now in app.js use <strong> greeter=require('./Components/Greeter.js'); </strong> call as <strong> greeter(); </strong></li>
+                <li>Now follow the bunddle.js steps again and then run the project again</li>
+            </ol>
+            <br/>
+            <br/>
+            <h3>Lesson 4</h3>
+            <p>Now we are going to create webpack config file so that we dont have to run the entire command <strong>webpack ./public/app.js ./public/bundle.js</strong> for every change in the app.js to convert to bundle.js and also the code we are using in the bundle.js is still readable so to avoid this code visibility we are learning this step</p>
+            <ol>
+                <li>In the main project folder create a file with the exact name as <strong>webpack.config.js</strong></li>
+                <li>add lines module.exports</li>
+                <li>and add <strong>entry: the source file path</strong></li>
+                <li><strong>output: {path: __dirname [main folder/project path this can be given by "__dirname" in node], filename:'path after the main directory[./public/...]'}</strong></li>
+                <li><strong>{ extensions: ['','.js','.jsx']}  these are the file extensions to be considered or resolved</strong></li>
+                <li>Now the changes in the app.js can be added in bundle.js with single command that is <strong>webpack</strong> this calls the webpack.config.js file and this executes the command <strong>webpack ./public/app.js ./public/bundle.js</strong></li>
+            </ol>
+            <br/>
+            <br/>
+            <h3>Lesson 5</h3>
+            <p>Now we are using the app.jsx file instead of app.js for this we gonna need babel-loader package which we have installed already to use this in webpack.config.js file we have to follow the following steps</p>
+            <ol>
+                <li>Add <strong>modules: { loaders: [ { loader: 'babel-loader', query:{presets:['react', 'es2015']}, test: /\.jsx?$/.  } ] }</strong>  Here we are telling the babel loader to take our files and parse them through react and get output and run them through es2015 </li>
+                <li>the files to get are provided bt using the <strong>test</strong> attribute to set the file
+                    <ol>
+                        <li>we are using hte file extension as .jsx here, by regular expresion matching <strong>$</strong> : says the extension is considered at the end of the file name i.e., match the end of the file name, <strong>\.</strong> : escape character as . is special character in regular expression </li>
+                    </ol>
+                </li>
+                <li>We also have to restrict some folder to not get searched by the <strong>test</strong> attribute for this we have to use <strong>exclude</strong> attribute and set the folders to exclude as <strong>exclude: /(node_modules|bower_components)/</strong></li>
+                <li>while using webpack we should not usr the react and react-dom in .jsx as a global components as we used then till now instead we have to use require(''); method and include into the .jsx file and we have to use that object </li>
+            </ol>
+            <br/>
+            <br/>
+            <h3>Lesson 5</h3>
+            <p>Now we are creating a seperae file for each component in the app.jsx file</p>
+        </div>
+        <!-- <script type="text/babel">
+            ReactDOM.render(
+                <h1>Hello World this is Second Tutorial</h1>,
+                document.getElementById('app')
+            );
+        </script> -->
+        <!-- <script type="text/babel" src="./app.jsx"></script> -->
+        <!-- We dont have to use babel type here we can directly use javascript, instead of jsx we can use javascript to use these we have to following a few steps -->
+        
+    </body>
+</html>

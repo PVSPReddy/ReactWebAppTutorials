@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react-dom.js"></script> -->
+        <!-- We delete the above lines as we are using packages that includes the lines automatically -->
+    </head>
+    <body>
+        <div id="app"></div>
+        <script src="bundle.js"></script>
+        <div>
+            <p>npm install --save-dev webpack@1.12.13 babel-core@6.5.1 babel-loader@6.2.2 babel-preset-es2015@6.5.0 babel-preset-react@6.5.0</p>
+            <p>--- Creates a <strong>devDependencies</strong> in <strong>package.json</strong> file this is user for development only in production these packages wont be installed in hosting server</p>
+            <br/>
+            <br/>
+            <p>npm install --save react@0.14.7 react-dom@0.14.7</p>
+            <p>--- Creates a <strong>dependencies</strong> in <strong>package.json</strong> file this is user for both development and in production these packages will be installed in hosting server</p>
+            <p>because of the above <strong>dependencies</strong> we can eliminate adding of the following lines in html files</p>
+            <ol>
+                <li>script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"/</li>
+                <li>script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react.js"/</li>
+                <li>script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react-dom.js"/</li>
+            </ol>
+            <br/>
+            <br/>
+            <p>We dont have to use babel type here we can directly use javascript, instead of jsx we can use javascript to use these we have to following a few steps</p>
+            <ol>
+                <li>For this we need a third party package like webpack install this globally in your system by using <strong>-g tag</strong></li>
+                <li><strong>npm install -g webpack@1.12.13</strong></li>
+                <li>then install locally and for development purpose as <strong>npm install --save-dev webpack@1.12.13</strong></li>
+                <li>Create a file with any name assume app1.js</li>
+                <li>write a function with documnet.write('Text to display in the function'); </li>
+                <li>This will be displayed in the window/screen</li>
+                <li>now in the index.html file write the line<li>script src="bundle.js"</li></li>
+                <li>This bundle.js will be created automatically to make this happen use the following command in command line</li>
+                <li><strong>webpack ./public/app1.js ./public/bundle.js</strong>    </br>                   <strong>webpack SourceFileLocation TargetFileLocation</strong></li>
+            </ol>
+        </div>
+        <!-- <script type="text/babel">
+            ReactDOM.render(
+                <h1>Hello World this is Second Tutorial</h1>,
+                document.getElementById('app')
+            );
+        </script> -->
+        <!-- <script type="text/babel" src="./app1.jsx"></script> -->
+        <!-- We dont have to use babel type here we can directly use javascript, instead of jsx we can use javascript to use these we have to following a few steps -->
+        
+    </body>
+</html>

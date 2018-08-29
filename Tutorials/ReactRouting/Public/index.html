@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react-dom.js"></script> -->
+        <!-- We delete the above lines as we are using packages that includes the lines automatically -->
+    </head>
+    <body>
+        <div id="app"></div>
+        <script src="bundle.js"></script>
+        <div>
+            <h3>Lesson 1</h3>
+            <p>Introduction</p>
+            <br/>
+            <br/>
+            <h3>Lesson 2</h3>
+            <p>We are adding routing functionality to our application. For this you have to following the steps:</p>
+            <ol>
+                <li>Add the package react-router by command line command : <strong>npm install react-router@2.0.0 --save</strong></li>
+                <li>Now in App folder create coponents</li>
+                <li>Include the page components in the app.jsx</li>
+                <li>Now include the React-router components in app.jsx by the include line <strong>var {Route, Router, IndexRoute, hashHistory} = require('react-router');</strong></li>
+                <li>Router component contains the total navigation or the body page that holds all the children</li>
+                <li>Route component contains the each page, 
+                    <ol>
+                        <li><strong>path</strong> : atribute is used to call the page using the url i.e., "app url + path = path of the page" </li>
+                        <li><strong>component</strong> : attribute is used to tell the navigation about the page, the value is given as "component={page name given for require() method}" which is included at the top of the app.jsx file</li>
+                    </ol>
+                </li>
+                <li>IndexRoute gives out the default page on url or opening of application</li>
+            </ol>
+            <br/>
+            <br/>
+            <h3>Lesson 2</h3>
+            <p>Creating multiple pages for navigation</p>
+            <ol>
+                <li>Create Main.jsx, Nav.jsx, Weather.jsx, About.jsx in App folder as Main, About, Weahter
+                    <ol>
+                        <li>Main.jsx : is the body of the page</li>
+                        <li>Nav.jsx : is the nav bar of the page</li>
+                        <li>Weather.jsx, About.jsx are the children pages</li>
+                    </ol>
+                </li>
+                <li>Let us make Weather.jsx as default children/opening page and About.jsx page to be opened on button click</li>
+                <li>Create alias in webpack.config.js</li>
+                <li>Go to app.jsx include Main.jsx, About.jsx and Weather.jsx</li>
+                <li>Now add following code in app.jsx 
+                    <ol>
+                        <li>
+                                ReactDOM.render(
+                                    &#60 Router history={hashHistory} &#62
+                                    &#60Route path="/" component={Main}&#62
+                                    &#60Route path="about" component={About}/&#62
+                                    &#60IndexRoute component={Weather} /&#62
+                                    &#60/Route&#62
+                                    &#60/Router&#62,
+                                    document.getElementById('app')
+                                );
+                        </li>
+                    </ol>
+                </li>
+                <li>Now in Main.jsx include the nav.jsx and create a Nav tag, then the code in nav.jsx will be added to main.jsx, we are using nav.jsx to create a nav bar</li>
+                <li>Now in nav.jsx incliude react-router as var {Link} = require('react-router');   This is taken as var Link = require('react-router').Link;
+                    <ol>
+                        <li>Now add links to About.jsx and Weather.jsx as</li>
+                        <li>
+                                &#60div&#62
+                                        &#60h2&#62Nav Component&#60/h2&#62
+                                        &#60Link to="/" &#62Get Weather&#60/Link&#62
+                                        &#60Link to="/about"&#62About&#60/Link&#62
+                                        &#60/div&#62
+                        </li>
+                        <li>The attribute that we used to navigate the link is <strong>to="url-match-path"</strong></li>
+                        <li>on clicking on Weather link gives url  of app sends to Weather page</li>
+                        <li>on clicking on About link gives url+about sends to about page</li>
+                    </ol>
+                </li>
+            </ol>
+            <br/>
+            <br/>
+            <h3>Lesson 3</h3>
+            <p>Tutorial for Link Tag</p>
+            <ol>
+                <li>Instead of Link tag we can also use <strong>&#60a href="#/about" &#62 Link to About page &#60/a&#62</strong> this works but this cannot provide few functionalities that a Link tag can provide</li>
+                <li>in Link tag we can know whether the link is in active/selected mode or unselected mode by using the attribute <strong>activeClassName="active"</strong></li>
+                <li>also we can set a style to a selected link by using attribute <strong>activeStyle={{fontWeight: 'bold'}}</strong></li>
+                <li>Instead of Link we can use <strong>IndexLink</strong> tag the benfit of IndexLink Tag is that this updates the active state of the link where the Link tag once gets active status it won't change the link back to normat state</li>
+            </ol>
+            <br/>
+            <br/>
+            <h3>Lesson 4</h3>
+            <p>Creating the Weater form in Weather.jsx file</p>
+        </div>
+        <!-- <script type="text/babel">
+            ReactDOM.render(
+                <h1>Hello World this is Second Tutorial</h1>,
+                document.getElementById('app')
+            );
+        </script> -->
+        <!-- <script type="text/babel" src="./app.jsx"></script> -->
+        <!-- We dont have to use babel type here we can directly use javascript, instead of jsx we can use javascript to use these we have to following a few steps -->
+        
+    </body>
+</html>
