@@ -65,8 +65,8 @@
 
 	var Main = __webpack_require__(216); //the path is declared in webpack.config.js file
 	var Weather = __webpack_require__(218); //the path is declared in webpack.config.js file
-	var About = __webpack_require__(220); //the path is declared in webpack.config.js file
-	var Examples = __webpack_require__(221); //the path is declared in webpack.config.js file
+	var About = __webpack_require__(221); //the path is declared in webpack.config.js file
+	var Examples = __webpack_require__(222); //the path is declared in webpack.config.js file
 
 
 	ReactDOM.render(React.createElement(
@@ -24951,6 +24951,7 @@
 
 	var React = __webpack_require__(1);
 	var WeatherForm = __webpack_require__(219);
+	var WeatherMessage = __webpack_require__(220);
 
 	var Weather = React.createClass({
 	    displayName: 'Weather',
@@ -24964,7 +24965,8 @@
 	                null,
 	                'Weather Component'
 	            ),
-	            React.createElement(WeatherForm, null)
+	            React.createElement(WeatherForm, null),
+	            React.createElement(WeatherMessage, null)
 	        );
 	    }
 	});
@@ -25010,6 +25012,32 @@
 
 	var React = __webpack_require__(1);
 
+	var WeatherMessage = React.createClass({
+	    displayName: 'WeatherMessage',
+
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            null,
+	            React.createElement(
+	                'p',
+	                null,
+	                'The Temperature in India is 40 Degrees Centigrade'
+	            )
+	        );
+	    }
+	});
+
+	module.exports = WeatherMessage;
+
+/***/ },
+/* 221 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
 	var About = React.createClass({
 	    displayName: 'About',
 
@@ -25029,7 +25057,7 @@
 	module.exports = About;
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
